@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일 추천 - AI 패션 스타일리스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="recommendation-container">
+            <h1>오늘의 스타일 추천</h1>
+            <div class="weather-summary">
+                <div id="current-weather"></div>
+            </div>
+            
+            <div id="recommended-outfits-list" class="recommended-outfits-list">
+                <!-- 추천된 옷 세트들이 여기에 동적으로 삽입됩니다 -->
+            </div>
+            
+            <div class="recommendation-actions">
+                <button class="start-btn" id="get-new-recommendation-btn">새로운 스타일 추천받기</button>
+                <button onclick="location.href='index.html'" class="start-btn">처음으로</button>
+            </div>
+        </div>
+    </div>
+    <script src="recommendation.js"></script>
+</body>
+</html> 

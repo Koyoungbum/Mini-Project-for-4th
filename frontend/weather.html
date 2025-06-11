@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 날씨 - AI 패션 스타일리스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-container">
+            <h1>오늘의 날씨</h1>
+            <div class="weather-info">
+                <img id="weather-icon" class="weather-icon" src="" alt="날씨 아이콘">
+                <div class="weather-details">
+                    <div id="temperature" class="temperature">--°C</div>
+                    <div id="weather-description">날씨 정보를 불러오는 중...</div>
+                    <div id="city-name">위치 정보를 불러오는 중...</div>
+                    <div id="local-time" class="local-time">시간 정보를 불러오는 중...</div>
+                    <div id="detailed-address" class="detailed-address">상세 주소 불러오는 중...</div>
+                </div>
+            </div>
+            <div id="map" class="small-map"></div>
+            <button onclick="location.href='recommendation.html'" class="start-btn" id="next-btn" disabled>스타일 추천 받기</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=46c60f12e65b82f9bd1d7490e62c4e7e&libraries=services"></script>
+    <script src="weather.js"></script>
+    <script>
+        // SDK 로드 확인을 위한 함수
+        function checkKakaoSDK() {
+            if (typeof kakao !== 'undefined' && kakao.maps) {
+                console.log("카카오맵 SDK가 성공적으로 로드되었습니다.");
+                getLocation();
+            } else {
+                console.log("카카오맵 SDK 로드 대기 중...");
+                setTimeout(checkKakaoSDK, 100);
+            }
+        }
+
+        // 페이지 로드 시 SDK 확인 후 위치 정보 가져오기
+        window.onload = function() {
+            checkKakaoSDK();
+        };
+    </script>
+</body>
+</html> 

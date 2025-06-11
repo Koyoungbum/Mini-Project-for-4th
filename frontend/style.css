@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px; /* 전체 컨테이너 너비 조정 */
+    padding: 30px;
+    text-align: center;
+}
+
+/* 공통 카드 스타일 */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* 버튼 공통 스타일 */
+.start-btn {
+    background: linear-gradient(45deg, #4a90e2, #6a82fb); /* 그라데이션 */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+    text-decoration: none; /* a 태그 스타일 제거 */
+    display: inline-block; /* 패딩 적용을 위해 */
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(45deg, #357abd, #526be3);
+}
+
+/* 첫 페이지 스타일 */
+.welcome-section {
+    @extend .card; /* 카드 스타일 상속 */
+}
+
+/* 날씨 페이지 스타일 */
+.weather-container {
+    @extend .card; /* 카드 스타일 상속 */
+    max-width: 600px; /* 적절한 너비 설정 */
+    margin: auto;
+}
+
+.weather-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* 간격 조정 */
+    margin-bottom: 25px;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* 간격 조정 */
+    align-items: center;
+}
+
+.weather-icon {
+    width: 150px; /* 아이콘 크기 조정 */
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #e74c3c; /* 강조 색상 */
+}
+
+#weather-description {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+#city-name {
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.local-time {
+    font-size: 1.1rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+.detailed-address {
+    font-size: 1rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.small-map {
+    width: 100%;
+    max-width: 300px; /* 지도 최대 너비 */
+    height: 200px; /* 지도 높이 */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto; /* 중앙 정렬 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 추천 페이지 스타일 */
+.recommendation-container {
+    @extend .card; /* 카드 스타일 상속 */
+    max-width: 800px;
+    margin: auto;
+}
+
+.recommendation-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.weather-summary {
+    background: #ecf0f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#current-weather {
+    font-size: 1.2rem;
+    color: #34495e;
+}
+
+.recommended-outfits-list {
+    margin-top: 30px;
+    min-height: 280px; /* 로딩 스피너 및 내용 공간 확보 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px; /* 스타일 설명과 아이템 그룹 사이 간격 */
+}
+
+.style-description {
+    margin: 0; /* 부모 컨테이너가 간격을 조절 */
+    padding: 20px;
+    background-color: #e0f2f7; /* 부드러운 배경색 */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 90%; /* 너비 조정 */
+    max-width: 600px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.style-description p {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.15rem;
+}
+
+.outfit-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* 옷 아이템들 사이 간격 */
+    margin-top: 15px;
+    width: 100%;
+}
+
+.outfit-item {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 160px; /* 아이템 너비 조정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.outfit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.outfit-item img {
+    width: 120px; /* 이미지 너비 고정 */
+    height: 120px; /* 이미지 높이 고정 */
+    object-fit: cover; /* 이미지를 채우면서 비율 유지 */
+    margin-bottom: 12px;
+    border-radius: 8px; /* 이미지 모서리 둥글게 */
+    border: 1px solid #ddd;
+}
+
+.outfit-item p {
+    font-size: 1rem;
+    color: #444;
+    font-weight: 500;
+    margin: 0;
+}
+
+.recommendation-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 버튼 사이 간격 */
+    margin-top: 40px;
+}
+
+.nav-btn {
+    /* 이 클래스는 더 이상 사용되지 않음 */
+    display: none;
+}
+
+/* 로딩 스피너 스타일 */
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #6a82fb;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 1.15rem;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.recommendation-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #357abd;
+}
+
+.nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+#weather-info {
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#recommendations-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: #45a049;
+}
+
+.nav-button.active {
+    background-color: #2e7d32;
+} 
